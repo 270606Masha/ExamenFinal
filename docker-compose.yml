@@ -1,0 +1,33 @@
+services:
+  ms-client:
+    container_name: ms-client
+    build: ./ms-client
+    ports:
+      - 9094:9094
+    networks:
+      - spring-network
+    
+
+  ms-financial-product:
+    container_name: ms-financial-product
+    build: ./ms-financial-product
+    ports:
+      - 9093:9093
+    networks:
+      - spring-network
+
+  ms-bff:
+    container_name: ms-detail
+    build: ./ms-bff
+    ports:
+      - 9092:9092
+    networks:
+      - spring-network
+      
+networks:
+  spring-network:
+    driver: bridge
+  
+    
+    
+      
